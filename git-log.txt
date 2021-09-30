@@ -1,0 +1,53 @@
+commit 81ecc59c8f1b87ab6d348737a7bc273fcb676a7a
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Thu Sep 30 14:23:02 2021 +0200
+
+    deleted unimportant directory
+
+commit e19dc3aaf79de13af6716e1dfd8973d8a5b2c6c3
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Thu Sep 30 14:19:59 2021 +0200
+
+    new sql example data
+
+commit b3074c4d34e31d440e8ad259fec433816f92c927
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Thu Sep 30 14:19:45 2021 +0200
+
+    new sql example data
+
+commit af91241ccfb15c56d5dcf1fb2a31e2092edfaa86
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Thu Sep 30 13:50:38 2021 +0200
+
+    changed create method
+
+commit 96f05f569b6f5792cf742a0346cac6db8ff84cee
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Thu Sep 30 13:41:44 2021 +0200
+
+    comments in Controllers, login, logout, delete
+
+commit 53fa574213fa5e8c6ab6497da169c9d74f27eb0d
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Thu Sep 30 09:43:44 2021 +0200
+
+    Login finished, started register
+
+commit 96593ce10817b83d7a9ca6436f38e7dfb967ea82
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Wed Sep 29 14:28:32 2021 +0200
+
+    HTML and CSS Files started
+
+commit a2dbebf37fb425f9b586721a314182bf937e9cea
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Wed Sep 29 12:53:37 2021 +0200
+
+    Implementet new Entities (plus Controller and Service)
+
+commit ee66295ba758f1b1d5c72df95ac74c53109dd635
+Author: Lorena Tassi <loritassi@gmail.com>
+Date:   Wed Sep 29 10:52:18 2021 +0200
+
+    Initial commit
