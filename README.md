@@ -19,3 +19,4 @@ Datenquelle: jdbc:h2:mem:punchclock
 Benutzername: zli
 Passwort: zli
 
+Im Resource-Folder liegt ein SQL File welches für jede Entität zwei Datensätze lädt.
