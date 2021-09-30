@@ -11,7 +11,30 @@ public class Break {
     @Column
     private Long hours;
 
-    @ManyToOne(mappedBy = "break")
+    @ManyToOne
     private Entry entry;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getHours() {
+        return hours;
+    }
+
+    public void setHours(Long hours) {
+        this.hours = hours;
+    }
+
+    public Entry getEntry() {
+        return entry;
+    }
+
+    public void setEntry(Entry entry) {
+        this.entry = entry;
+    }
 }

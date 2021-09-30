@@ -21,7 +21,12 @@
     <script src="script.js" type="application/javascript"></script>
 </head>
 <body>
-<div class="container">
+<nav class="navbar" style="background-color: #0a4275;">
+    <span class="navbar-brand m-3 h1 center" style="display: flex;
+justify-content: space-around; color: white">Neuen Eintrag erstellen</span>
+</nav>
+
+<div class="container mt-5">
     <form class="row g-3">
         <div class="col-md-6">
             Checkin
@@ -100,4 +105,20 @@
 </div>
 
 </body>
+
+<footer class="text-center text-white sticky" style="background-color: #0a4275; margin-top: 10rem">
+    <div class="container p-4 pb-0">
+        <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+                <button onclick="logout()" type="button" class="btn btn-outline-light btn-rounded">
+                    Logout
+                </button>
+            </p>
+        </section>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        Modul 223:
+        <a class="text-white">Lorena Tassi</a>
+    </div>
+</footer>
 </html>

@@ -31,9 +31,9 @@ public class AuthenticationService {
     }
 
     public boolean checkUser(User user) {
-        var query = entityManager.createQuery("SELECT COUNT(*) FROM User WHERE username = :name AND password =:password");
+        var query = entityManager.createQuery("SELECT COUNT(*) FROM User WHERE username = :name AND passwort =:password");
         query.setParameter("name", user.getUsername());
-        query.setParameter("password", user.getPassword());
+        query.setParameter("password", user.getPasswort());
         var result = query.getSingleResult();
         return (long) result == 1;
     }

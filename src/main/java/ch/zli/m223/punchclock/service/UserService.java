@@ -29,7 +29,8 @@ public class UserService {
 
     @Transactional
     public void delUserId(Long id) {
-        entityManager.createQuery("delete from User where id = :id");
+        User user = entityManager.find(User.class, id);
+        entityManager.remove(user);
     }
 
     @SuppressWarnings("unchecked")

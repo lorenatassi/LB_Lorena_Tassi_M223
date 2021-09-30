@@ -25,8 +25,12 @@ public class AuthenticationController {
     @Path("/login")
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Login user", description = "test if user exists and gives back token if so")
     public String login(User user) {
-        authenticationService.checkUser(user);
-        return authenticationService.GenerateValidJwtToken(user.getUsername());
+        if(authenticationService.checkUser(user)){
+            return authenticationService.GenerateValidJwtToken(user.getUsername());
+        }else {
+            throw new NotAuthorizedException("User doesn't exist!");
+        }
     }
 }

@@ -16,18 +16,12 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 @Path("/entries")
 @Tag(name = "Entries", description = "Handling of entries")
 public class EntryController {
-
-    //entitymanager.find(entry.class, id) -- ein eintrag nur mit der id holen
-    //@Transactional -- bei errors in service(bei daten ändern)
-    //merge um update zu machen
-    //neue klasse -- statisch bedeutet keine klassen dazu
-
     @Inject
     EntryService entryService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "List all Entries", description = "")
+    @Operation(summary = "List all Entries", description = "returns all entries")
     public List<Entry> list() {
         return entryService.findAll();
     }
@@ -35,6 +29,7 @@ public class EntryController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
+    @Operation(summary = "Returns one Entry", description = "returns one entry over id")
     public Entry getEntry(@PathParam Long id) {
         return entryService.getEntry(id);
     }
@@ -50,14 +45,14 @@ public class EntryController {
 
 
     @DELETE
-    @Operation(summary = "Deletes one Objekt", description = "")
+    @Operation(summary = "Deletes one Objekt", description = "deletes Entry over id")
     @Path("/{id}")
     public void deletePerId(@PathParam Long id){
         entryService.delEntryId(id);
     }
 
     @DELETE
-    @Operation(summary = "Deletes one Objekt", description = "")
+    @Operation(summary = "Deletes one Objekt", description = "deletes given object")
     public void deleteObject(Entry entry){
         entryService.delEntryObject(entry);
     }
@@ -65,6 +60,7 @@ public class EntryController {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Updates Entry", description = "updates given object")
     public Entry update(Entry entry){
         return entryService.updateEntry(entry);
     }

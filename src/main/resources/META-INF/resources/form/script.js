@@ -15,6 +15,8 @@ const createEntry = (e) => {
     entry['checkIn'] = dateAndTimeToDate(formData.get('checkInDate'), formData.get('checkInTime'));
     entry['checkOut'] = dateAndTimeToDate(formData.get('checkOutDate'), formData.get('checkOutTime'));
 
+    /*
+
     const jiraStat = {};
     jiraStat['jiraNumber'] = formData.get('jnumber');
     jiraStat['achievement'] = formData.get('achievement')
@@ -23,6 +25,8 @@ const createEntry = (e) => {
     category['text'] = formData.get('admin');
     category['text'] = formData.get('itsupport');
     category['text'] = formData.get('projekt');
+
+     */
 
     fetch(`${URL}/entries`, {
         method: 'POST',
@@ -64,17 +68,56 @@ const renderEntries = () => {
         row.appendChild(createCell(entry.id));
         row.appendChild(createCell(new Date(entry.checkIn).toLocaleString()));
         row.appendChild(createCell(new Date(entry.checkOut).toLocaleString()));
+
+        let delbutton = document.createElement('delbutton');
+        delbutton.innerText('Löschen');
+        delbutton.onclick = () => {
+            delet(entry.id)
+        }
+
+        let edbutton = document.createElement('edbutton');
+        edbutton.innerText('Bearbeiten');
+        edbutton.onclick = () => {
+            edit(entry.id)
+        }
+
         display.appendChild(row);
     });
 };
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     const createEntryForm = document.querySelector('#createForm');
-    createEntryForm.addEventListener('submit', createEntry, createBreak);
+    createEntryForm.addEventListener('submit', createEntry);
     indexEntries();
-    indexBreak();
 });
 
+function logout() {
+    localStorage.setItem("token", "");
+    window.location.replace("http://localhost:8080/login/login.html");
+}
+
+function delet(id) {
+    fetch(`${URL}/entries/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    indexEntries();
+};
+
+
+function edit(id) {
+    fetch(`${URL}/entries/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    indexEntries();
+}
+
+/*
 
 const renderBreaks = () => {
     const display = document.querySelector('#breaksDisplay');
@@ -108,16 +151,13 @@ const createBreak = (e) => {
     });
 };
 
-const indexBreak = () => {
-    fetch(`${URL}/breaks`, {
-        method: 'GET'
-    }).then((result) => {
-        result.json().then((result) => {
-            breaks = result;
-            renderBreaks();
-        });
-    });
-    renderBreaks();
-};
+
+ */
+
+
+
+
+
+
 
 

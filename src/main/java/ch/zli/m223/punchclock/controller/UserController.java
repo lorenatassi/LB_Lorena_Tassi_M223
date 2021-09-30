@@ -21,7 +21,7 @@ public class UserController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "List all Users", description = "")
+    @Operation(summary = "List all Users", description = "displays all users")
     public List<User> list() {
         return userService.findAll();
     }
@@ -29,7 +29,8 @@ public class UserController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public User getEntry(@PathParam Long id) {
+    @Operation(summary = "Get one User", description = "returns one users over id")
+    public User getUser(@PathParam Long id) {
         return userService.getUser(id);
     }
 
@@ -44,14 +45,14 @@ public class UserController {
 
 
     @DELETE
-    @Operation(summary = "Deletes one Objekt", description = "")
+    @Operation(summary = "Deletes one Objekt", description = "deletes object over id")
     @Path("/{id}")
     public void deletePerId(@PathParam Long id){
         userService.delUserId(id);
     }
 
     @DELETE
-    @Operation(summary = "Deletes one Objekt", description = "")
+    @Operation(summary = "Deletes one Objekt", description = "deletes given object")
     public void deleteObject(User user){
         userService.delUserObject(user);
     }
@@ -59,6 +60,7 @@ public class UserController {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Updates user", description = "updates user over given object")
     public User update(User user){
         return userService.updateUser(user);
     }

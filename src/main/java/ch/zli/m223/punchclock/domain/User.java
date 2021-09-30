@@ -1,7 +1,6 @@
 package ch.zli.m223.punchclock.domain;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class User {
@@ -14,9 +13,6 @@ public class User {
 
     @Column(nullable = false)
     private String passwort;
-
-    @OneToMany(mappedBy = "user")
-    private List<Entry> entries;
 
     public Long getId() {
         return id;
@@ -42,15 +38,5 @@ public class User {
         this.passwort = passwort;
     }
 
-    public List<Entry> getEntries() {
-        return entries;
-    }
 
-    public void setEntries(List<Entry> entries) {
-        this.entries = entries;
-    }
-
-    public Object getPassword() {
-        return passwort;
-    }
 }

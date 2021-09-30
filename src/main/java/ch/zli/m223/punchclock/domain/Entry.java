@@ -2,6 +2,7 @@ package ch.zli.m223.punchclock.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity // generiert neue tabelle in db anzeig^chen das es eine entity ist
 public class Entry {
@@ -21,6 +22,9 @@ public class Entry {
 
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "entry")
+    private List<Break> breaks;
 
     public Long getId() {
         return id;
@@ -52,5 +56,14 @@ public class Entry {
 
     public User getUser(){
         return user;
+    }
+
+
+    public List<Break> getBreaks() {
+        return breaks;
+    }
+
+    public void setBreaks(List<Break> breaks) {
+        this.breaks = breaks;
     }
 }
